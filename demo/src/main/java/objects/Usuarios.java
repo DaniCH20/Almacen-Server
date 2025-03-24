@@ -46,10 +46,13 @@ public class Usuarios implements java.io.Serializable {
         Administrador
     }
 
-   
-    public Usuarios() {
+   public Usuarios() {
+	   
+   }
+    public Usuarios(String nombre, String contrasena) {
+        this.nombre = nombre;
+        this.contrasena = contrasena;
     }
-
     public Usuarios(String contrasena, String nombre, String email, Rol rol) {
         this.contrasena = contrasena;
         this.nombre = nombre;

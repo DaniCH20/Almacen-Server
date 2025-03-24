@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@EntityScan(basePackages = "objects") 
-@ComponentScan(basePackages = {"service", "controller","repository"})
+@EntityScan(basePackages = "objects")
+@ComponentScan(basePackages = {"service", "controller","security" })
 public class AlmacenServerApplication {
 
 	public static void main(String[] args) {
