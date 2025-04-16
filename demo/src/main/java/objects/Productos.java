@@ -22,19 +22,14 @@ public class Productos implements java.io.Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idProducto;
 
-	@Column(name = "id_proveedor", nullable = false)
-	private int proveedor;
-
 	@Column(name = "nombre", nullable = false, length = 100)
 	private String nombre;
 
 	@Column(name = "descripcion", columnDefinition = "TEXT")
 	private String descripcion;
 
-	@Lob
 	@Column(name = "foto")
-	@JsonIgnore
-	private byte[] foto;
+	private String foto;
 
 	@Column(name = "precio_unitario", nullable = false, precision = 10, scale = 2)
 
@@ -52,17 +47,17 @@ public class Productos implements java.io.Serializable {
 	public Productos() {
 	}
 
-	public Productos(int proveedor, String nombre, BigDecimal precioUnitario, int stockActual, int stockMinimo) {
-		this.proveedor = proveedor;
+	public Productos(String nombre, BigDecimal precioUnitario, int stockActual, int stockMinimo) {
+
 		this.nombre = nombre;
 		this.precioUnitario = precioUnitario;
 		this.stockActual = stockActual;
 		this.stockMinimo = stockMinimo;
 	}
 
-	public Productos(int proveedor, String nombre, String descripcion, byte[] foto, BigDecimal precioUnitario,
-			int stockActual, int stockMinimo, boolean habilitado) {
-		this.proveedor = proveedor;
+	public Productos(String nombre, String descripcion, String foto, BigDecimal precioUnitario, int stockActual,
+			int stockMinimo, boolean habilitado) {
+
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.foto = foto;
@@ -81,14 +76,6 @@ public class Productos implements java.io.Serializable {
 		this.idProducto = idProducto;
 	}
 
-	public int getProveedor() {
-		return proveedor;
-	}
-
-	public void setProveedor(int proveedor) {
-		this.proveedor = proveedor;
-	}
-
 	public String getNombre() {
 		return nombre;
 	}
@@ -105,11 +92,11 @@ public class Productos implements java.io.Serializable {
 		this.descripcion = descripcion;
 	}
 
-	public byte[] getFoto() {
+	public String getFoto() {
 		return foto;
 	}
 
-	public void setFoto(byte[] foto) {
+	public void setFoto(String foto) {
 		this.foto = foto;
 	}
 
